@@ -1,0 +1,6 @@
+{% load crispy_forms_tags %}
+<form class="form-horizontal" method="POST" action="/vertical-loop-spec-form/">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>

@@ -1,0 +1,30 @@
+{% extends 'admin/change_form.html' %}
+{% load static %}
+
+{% block after_related_objects %}
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script>
+        // Globally define the default url of the popup in the admin
+        var base_url = ""
+
+        // Add the id value for the selected measurement type to the url parameters
+        function updateURL() {
+            var type_id = $("#id_measurement_type").val()
+            var url = base_url + "&_type=" + type_id
+            $("#add_id_measurement_spec").attr("href", url)
+        }
+
+        // When the page loads, get the default url and then update it with the new url param
+        $(document).ready(function () {
+            base_url = $("#add_id_measurement_spec").attr("href")
+            updateURL()
+        });
+
+        // If the user selects a new measurement type, update the url with the new param for the id
+        $("#id_measurement_type").change(function () {
+            updateURL()
+        })
+    </script>
+{% endblock %}
+
+

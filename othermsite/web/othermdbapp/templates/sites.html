@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load custom_tags %}
+
+{% block title %}Site List{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1>Site List</h1>
+
+        <!-- All sites will be displayed in the following table -->
+        <table class="mt-2 table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Site Name</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Zip</th>
+                <th scope="col">Weather</th>
+                <th scope="col">Equipment</th>
+                <th scope="col">Monitor</th>
+                <th scope="col">Records</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for site in site_list %}
+                <!-- Calling the custom tag that calculates quantity-->
+                {% equipment_quantity site as quantity %}
+                {% monitoring_stats site as stats %}
+                {% monitoring_system site as monitor %}
+                <tr>
+                    <td>{{ site.name }}</td>
+                    <td>{{ site.city }}</td>
+                    <td>{{ site.state }}</td>
+                    <td>{{ site.zip_code }}</td>
+                    <td>{{ site.weather_station_nws_id }}</td>
+                    <td>{{ quantity }}</td>
+                    <td>{{ monitor}}</td>
+                    <td>{{ stats.records }}</td>
+                    <td>{{ stats.first}}</td>
+                    <td>{{ stats.last }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td>No Sites to display</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% if is_paginated %}
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    <!--Render the previous button-->
+                    {% if page_obj.has_previous %}
+                        <li class="page-item"><a class="page-link"
+                                                 href="/site-list/?page={{ page_obj.previous_page_number }}">Previous</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                    {% endif %}
+
+                    <!-- Render paginated buttons -->
+                    {% for page_num in page_obj.paginator.page_range %}
+                        <!-- Set the current page as active if the page number we are on is the same -->
+                        {% if page_num is page_obj.number %}
+                            <li class="active page-item"><a class="page-link"
+                                                            href="/site-list/?page={{ page_num }}">{{ page_num }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="/site-list/?page={{ page_num }}">{{ page_num }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    <!--Render the next button-->
+                    {% if page_obj.has_next %}
+                        <li class="page-item"><a class="page-link"
+                                                 href="/site-list/?page={{ page_obj.next_page_number }}">Next</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        {% endif %}
+    </div>
+{% endblock content %}

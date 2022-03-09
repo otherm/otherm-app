@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% load custom_tags %}
+{% block content %}
+{% daily_summary 2 as summary %}
+{{ summary }}
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container">
+        <h3 class="text-center mt-5">Monitoring System Registration</h3>
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <button onclick="window.location.href = '/'" class="btn btn-secondary">Home</button>
+        <hr/>
+        <form class="form-horizontal" method="POST" action="">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Register</button>
+
+        </form>
+    </div>
+{% endblock %}

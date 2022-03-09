@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+        <h1 class="pt-3 text-center">Download Data from Time Series Database</h1>
+	{% if messages %}
+	   {% for message in messages %}
+	   	{% if message.tags == 'success' %}
+			<div class="alert alert-success" role="alert">
+				{{ message }}
+			</div>
+		{% elif message.tags == 'error' %}
+			<div class="alert alert-danger" role="alert">
+				{{ message }}
+			</div>
+		{% endif %}
+	    {% endfor %}
+	{% endif %}
+	<button onclick="window.location.href = '/'" class="btn btn-secondary">Home</button>
+  <form method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-primary">Download</button>
+  </form>
+</div>
+{% endblock %}
+{% block footer_javascript_page %}
+    <!-- Link the date picker with the expires field -->
+        <script type="text/javascript">
+		        $(document).ready(function () {
+				            $('#id_start_date').datepicker();
+				        });
+        $(document).ready(function () {
+		            $('#id_end_date').datepicker();
+		        });
+    </script>
+{% endblock footer_javascript_page %}

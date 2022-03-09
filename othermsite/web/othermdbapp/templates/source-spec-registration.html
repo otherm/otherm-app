@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+    <h3 class="text-center mt-5">Thermal Source Spec Registration</h3>
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags == 'success' %}
+    <div class="alert alert-success" role="alert">
+        {{ message }}
+    </div>
+    {% else %}
+    <div class="alert alert-danger" role="alert">
+        {{ message }}
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    <button onclick="window.location.href = '/'" class="btn btn-secondary">Home</button>
+    <hr />
+    <div class="form-group">
+        <label for="id_type" class=" requiredField">
+            Type</span>
+        </label>
+        <div class=""> <select name="type" class="select form-control" required="" id="id_type">
+                <option value="" selected=""></option>
+                <option value="AirSourceSpec">AirSourceSpec</option>
+                <option value="StandingColumnSpec">StandingColumnSpec</option>
+                <option value="OpenLoopSpec">OpenLoopSpec</option>
+                <option value="VerticalLoopSpec">VerticalLoopSpec</option>
+                <option value="HorizontalLoopSpec">HorizontalLoopSpec</option>
+                <option value="PondSpec">PondSpec</option>
+            </select>
+        </div>
+    </div>
+    <span id="formContainer">
+    </span>
+</div>
+
+
+{% endblock content %}
+
+
+{% block footer_javascript_page %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<script>
+    // Loads the manufacturer dropdown based off of the equipment type
+    $("#id_type").change(function () {
+        var type_id = $(this).val();
+        if (type_id === '') return;
+
+        // get the url of the `data-manufacturer-url` view
+        var url = "{% url 'ajax_load_source_spec_form' %}"
+        // get the selected type ID from the HTML input
+        var type_id = $(this).val();
+
+        $.ajax({
+            url: url,
+            data: {
+                'spec_type': type_id
+            },
+            success: function (data) {
+                $("#formContainer").html(data);
+            }
+        });
+    });
+</script>
+{% endblock footer_javascript_page %}

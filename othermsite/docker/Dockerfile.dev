@@ -1,0 +1,18 @@
+FROM python:3.7
+MAINTAINER Timothy Carlin <tjcarlin@iol.unh.edu>
+
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
+
+RUN apt-get update
+RUN apt-get install -y python-dev libldap2-dev libsasl2-dev libssl-dev
+
+
+WORKDIR /code/
+
+
+RUN pip install pipenv
+
+
+EXPOSE 8000
+

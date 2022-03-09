@@ -1,0 +1,34 @@
+{% extends 'admin/change_list.html' %}
+
+{% block object-tools-items %}
+    {{ block.super }}
+    <li>
+        <!-- Check if there is anything to export and if not make the link do nothing -->
+        {% if specs %}
+            <a class="historylink" href="{% url 'admin:export-csv' %}" download>Export specifications to csv</a>
+        {% else %}
+            <a href="#">Export specifications to csv</a>
+        {% endif %}
+    </li>
+{% endblock %}
+{% block result_list %}
+    {% for qs in specs %}
+        <h2>{{ qs.1.monitoring_system }}</h2>
+        <table style="width:100%">
+            <tr>
+                <th>Edit Monitoring System</th>
+                <th>Measurement Specification Description</th>
+                <th>Measurement Type</th>
+                <th>Measurement Unit</th>
+            </tr>
+            {% for spec in qs %}
+                <tr>
+                    <td class="text-center"><a href="{{ spec.uuid }}/change/" role="button">Edit</a></td>
+                    <td>{{ spec.measurement_spec.description }}</td>
+                    <td>{{ spec.measurement_type.name }}</td>
+                    <td>{{ spec.measurement_spec.unit.name }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endfor %}
+{% endblock %}

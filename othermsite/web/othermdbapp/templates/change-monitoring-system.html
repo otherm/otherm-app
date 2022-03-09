@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load custom_tags %}
+{% load crispy_forms_tags %}
+
+{% block title %}Change Monitoring System{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1 class="text-center mt-5">Change Monitoring System for {{ equipment }}</h3>
+        <p class="text-muted">
+            <em>This will update the current EquipmentMonitoringSystemSpec entry's end_date to today for this equipment.</em>
+        </p>
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <button onclick="window.location.href = '/'" class="btn btn-secondary">Home</button>
+        <hr/>
+        <form class="form-horizontal" method="POST" action="">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+    </div>
+{% endblock content %}

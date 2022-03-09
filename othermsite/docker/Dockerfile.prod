@@ -1,0 +1,23 @@
+FROM python:3.8
+MAINTAINER Timothy Carlin <tjcarlin@iol.unh.edu>
+
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
+
+WORKDIR /code/
+
+
+RUN pip install pipenv
+
+RUN apt-get update
+RUN apt-get install -y python-dev libldap2-dev libsasl2-dev libssl-dev
+
+COPY /web .
+
+RUN pipenv install
+
+#COPY /docker/entrypoint.prod.sh .
+
+EXPOSE 80
+
+#ENTRYPOINT ["entrypoint.prod.sh"]

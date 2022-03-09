@@ -1,0 +1,5 @@
+<!--Helps in rendering the equipment in the dropdown-->
+<option value="">---------</option>
+{% for equip in equipment %}
+    <option value="{{ equip.pk }}">{{ equip }}</option>
+{% endfor %}

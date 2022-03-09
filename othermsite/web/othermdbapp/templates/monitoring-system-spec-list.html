@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load custom_tags %}
+
+{% block title %}Monitoring System Specification List{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1 class="text-center pt-3">Monitoring System Specifications</h1>
+
+        <button onclick="window.location.href = '/'" class="btn btn-secondary">Home</button>
+        <hr class="mb-3"/>
+        <!-- This will tell the user if the site was added successfully -->
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <div class="mt-2 alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        {% for monitoring_system in object_list %}
+            {% get_monitoring_system_specs monitoring_system.id as monitoring_system_specs %}
+            <!-- All monitoring system specs will be displayed in the following table -->
+            <div class="row pr-3 mt-5">
+                <h3 class="col-10 text-muted">{{ monitoring_system.name }}</h3>
+                <a class="float-right col-2 btn btn-primary"
+                   href="{% url 'system-spec-registration' monitoring_system.id %}" role="button">Edit System
+                    Spec</a>
+            </div>
+            <table class="mt-2 table table-striped">
+                <thead>
+                <tr class="text-center">
+                    <th scope="col">Monitoring System</th>
+                    <th scope="col">Measurement Type</th>
+                    <th scope="col">Measurement Spec</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for spec in monitoring_system_specs %}
+                    <tr class="text-center">
+                        <td>{{ spec.monitoring_system }}</td>
+                        <td>{{ spec.measurement_type }}</td>
+                        <td>{{ spec.measurement_spec }}</td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td>No Monitoring System Specifications to display</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endfor %}
+    </div>
+{% endblock content %}

@@ -1,0 +1,8 @@
+<div>
+    {% if user.is_authenticated %}
+        <em>Logged in as <span style="text-decoration: underline;">{{ user.get_username }}.</span></em>
+        <a href="{% url 'logout' %}?next=/{% url 'index' %}}">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+</div>

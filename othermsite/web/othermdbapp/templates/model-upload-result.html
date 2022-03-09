@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+        <h1 class="pt-3 text-center">Review Model Upload</h1>
+	{% if messages %}
+	   {% for message in messages %}	
+	   	{% if message.tags == 'success' %}
+			<div class="alert alert-success" role="alert">
+				{{ message }}
+			</div>	
+		{% elif message.tags == 'error' %}
+			<div class="alert alert-danger" role="alert">
+				{{ message }}
+			</div>
+		{% endif %}
+	    {% endfor %}
+	{% endif %}
+	<button onclick="window.location.href = '/'" class="btn btn-secondary">Home</button>
+  	<hr class="mb-3"/>
+        <div class="tab-content" id="forms">
+            <div class="tab-pane fade show active" id="file" role="tabpanel" aria-labelledby="file-tab">
+				<h3>The following models have been created successfully</h3>
+					{% for model in savedModels %}
+						<ul class="list-group">
+							<li class="list-group-item list-group-item-action list-group-item-success">
+								{{model.type}}
+							</li>
+							{% for fieldStr in model.fields %}
+								<li class="list-group-item">
+									{{fieldStr}}
+								</li>
+							{% endfor %}
+						</ul>
+						<br/><br/>
+					{% endfor %}
+            </div>
+        </div>
+</div>
+{% endblock %}

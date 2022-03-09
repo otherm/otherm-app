@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Update Equipment to a Site{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="mt-5 row justify-content-center">
+            <form class="text-center" method="POST">
+                {% csrf_token %}
+                <p>Are you sure you want to delete the record for {{ object.manufacturer }} {{ object.model }}?</p>
+                <button type="submit" class="btn btn-primary">Delete</button>
+            </form>
+        </div>
+
+    </div>
+{% endblock content %}

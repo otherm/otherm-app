@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="text-center">oTherm Site Forms</h2>
+
+        <div class="row gy-8">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2">
+
+          </div>
+          <div class="col-md-10">
+              <h4 class="mt-5">Site Registration Forms</h4>
+              <div class="row">
+                  <div class="col-md-4">
+                       <button class="btn btn-primary col-10 othermblue white"
+                               onclick="window.location.href = '/thermal-load/'">Thermal Load</button>
+                  </div>
+                  <div class="col-md-6">
+                        <p>Add thermal load data. Because a Site requires a Thermal Load, this must be done
+                        before Site registration.</p>
+                  </div>
+              </div>
+              <div class="row">
+                   <div class="col-md-4">
+                      <button class="btn btn-primary col-10 othermblue white"
+                               onclick="window.location.href = '/site-list/'"> Site Registration </button>
+                   </div>
+                   <div class="col-md-6">
+                         <p>Add a new site to the oTherm database.</p>
+                   </div>
+               </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-10">
+              <h4 class="mt-5">Thermal Source Forms</h4>
+              <div class="row">
+                  <div class="col-md-4">
+                     <button class="btn btn-primary col-10 othermblue white" onclick="window.location.href = '/source-spec-registration/'">
+                Thermal Source Specification
+            </button>
+                  </div>
+                  <div class="col-md-6">
+                        <p>Add a new Thermal Source Specification that can be used for one or more Sites.</p>
+                  </div>
+              </div>
+              <div class="row">
+                   <div class="col-md-4">
+                      <button class="btn btn-primary col-10 othermblue white" onclick="window.location.href =
+                      '/source-registration/'">Register a Thermal Source
+            </button>
+                   </div>
+                   <div class="col-md-6">
+                         <p>This is an initial step to link Source Specification to a Site.  This can be repeated if a Site has multiple sources.</p>
+                   </div>
+               </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+
+          </div>
+          <div class="col-md-10">
+              <div class="row">
+                  <div class="col-md-4">
+                       <button class="btn btn-primary col-10 othermblue white"
+                               onclick="window.location.href = '/site-source-registration/'"> Assign Thermal
+                Source to Site</button>
+                  </div>
+                  <div class="col-md-6">
+                        <p>Associate one or more Thermal Sources to a Site.</p>
+                  </div>
+              </div>
+          </div>
+
+        <div class="row">
+          <div class="col-md-2">
+          </div>
+
+          <div class="col-md-10">
+              <h4 class="mt-5">Equipment Forms</h4>
+              <div class="row">
+                  <div class="col-md-4">
+                     <button class="btn btn-primary col-10 othermblue white" onclick="window.location.href = '/equipment-site-list/'">Add
+                Equipment to a Site
+            </button>
+                  </div>
+                  <div class="col-md-6">
+                        <p>Add a piece of equipment to a site. Equipment specs must already exist in database.
+                            Contact the admin to add equipment specs.</p>
+                  </div>
+              </div>
+
+            <div class="row">
+                   <div class="col-md-4">
+                      <button class="btn btn-primary col-10 othermblue white" onclick="window.location.href = '/add-monitoring-system/'">Add Monitoring System to Equipment
+            </button>
+                   </div>
+                   <div class="col-md-6">
+                         <p>Associate a monitoring system with a piece of Equipment and setting its active date.  If the
+                         monitoring system changes over time, it can be updated with the button below</p>
+                   </div>
+            </div>
+
+              <div class="row">
+                   <div class="col-md-4">
+                      <button class="btn btn-primary col-10 othermblue white" onclick="window.location.href = '/change-monitoring-system-eq-list/'">Change Monitoring System for Existing Equipment
+            </button>
+                   </div>
+                   <div class="col-md-6">
+                         <p>Allows the change of a monitoring system for an existing piece of equipment.</p>
+                   </div>
+               </div>
+          </div>
+        </div>
+        </div>
+
+
+{% endblock %}

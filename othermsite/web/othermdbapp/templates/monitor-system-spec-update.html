@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load custom_tags %}
+{% block content %}
+
+    <div class="container">
+
+        <h1 class="text-center pt-3">{{ monitoring_system.name }} Monitoring System Specification</h1>
+        <p class="text-muted text-center">This page allows you to specify measurements for a monitoring system spec.</p>
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <button onclick="window.location.href = '/system-spec-list/'" class="btn btn-secondary">Back to Spec List
+        </button>
+        <hr/>
+        <form action="" method="post" id="monitoringSystemSpecForm">
+            {% csrf_token %}
+            <div class="row form-group">
+                <div class="col-5">
+                    <label for="from">Available Measurement Specifications</label>
+
+                    <select name="from" id="multiselect" class="form-control" size="8" multiple>
+                        {% for spec in available_specs %}
+                            <option value="{{ spec }}">{{ spec }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-2 text-center">
+                    <label>Add/Remove</label>
+                    <button type="button" id="multiselect_rightAll" class="btn btn-block btn-primary"
+                            data-toggle="popover" title="Add All" data-content="Adds all measurement specs"
+                            data-placement="top"><img src="{% static 'images/chevrons-right.svg' %}"></button>
+                    <button type="button" id="multiselect_rightSelected" class="btn btn-block btn-light"
+                            data-toggle="popover" title="Add Selected" data-content="Adds selected measurement specs"
+                            data-placement="top"><img src="{% static 'images/chevron-right.svg' %}"></button>
+                    <button type="button" id="multiselect_leftSelected" class="btn btn-block btn-light"
+                            data-toggle="popover" title="Remove Selected"
+                            data-content="Removes selected measurement specs" data-placement="bottom"><img
+                            src="{% static 'images/chevron-left.svg' %}"></button>
+                    <button type="button" id="multiselect_leftAll" class="btn btn-block btn-warning"
+                            data-toggle="popover" title="Remove All" data-content="Removes all measurement specs"
+                            data-placement="bottom"><img src="{% static 'images/chevrons-left.svg' %}"></button>
+                </div>
+                <div class="col-5">
+                    <label for="to">Current Measurement Specifications</label>
+                    <select name="to" id="multiselect_to" class="form-control" size="8" multiple>
+                        {% for spec in current_specs %}
+                            <option value="{{ spec }}">{{ spec }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <input type="submit" class="btn btn-primary" name="save" value="Save">
+        </form>
+        <h3 class="mt-5">Measurement Specification Details</h3>
+        <div id="accordion">
+            {% for spec in all_specs %}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse"
+                                    data-target="#collapse-{{ spec|slugify }}" aria-expanded="false"
+                                    aria-controls="collapseOne">
+                                {{ spec }} Information
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapse-{{ spec|slugify }}" class="collapse" aria-labelledby="headingOne"
+                         data-parent="#accordion">
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Type: </strong>{{ spec.type }}</li>
+                                <li class="list-group-item"><strong>Accuracy: </strong>{{ spec.accuracy }}</li>
+                                <li class="list-group-item"><strong>Location: </strong>{{ spec.location }}</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+{% block footer_javascript_page %}
+    <!-- Supports the multi-select widget on the page -->
+    <script src="{% static 'js/multiselect.min.js' %}"></script>
+    <script>
+        $('#multiselect').multiselect();
+    </script>
+    <script>
+
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover({
+                trigger: 'hover'
+            });
+        });
+    </script>
+
+{% endblock footer_javascript_page %}
+

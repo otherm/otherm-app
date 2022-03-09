@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <!-- Defines a default title for all site pages which can be overridden -->
+    <title>{% block title %} oTherm {% endblock title %} | oTherm</title>
+    <!-- Include meta data for all of the pages -->
+    {% block head_meta %}
+        {% block head_meta_charset %}
+            <meta charset="UTF-8">
+        {% endblock head_meta_charset %}
+        {% block head_meta_contentlanguage %}
+            <meta http-equiv="Content-Language" value="en-US"/>
+        {% endblock head_meta_contentlanguage %}
+        {% block head_meta_viewport %}
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% endblock head_meta_viewport %}
+        {% block head_css_site %}
+            <link href="{% static 'css/bootstrap.min.css' %}"
+                  rel="stylesheet" media="screen">
+            <link rel="stylesheet" href="{% static 'css/iconic-bootstrap.css' %}">
+            <link rel="stylesheet" href="{% static 'css/datepicker.min.css' %}" type="text/css"/>
+        {% endblock head_css_site %}
+    {% endblock head_meta %}
+    <style type="text/css">
+     .othermblue{background-color: #267CB9}
+     .white {color:white;}
+    </style>
+</head>
+<body>
+{# Navigation Menu #}
+<header>
+</header>
+{# The Document Body #}
+<div id="site-wrapper">
+    {% block content %}
+        If you see this, something is wrong!
+    {% endblock content %}
+</div>
+{# The Footer #}
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    {% include "login_logout_button.html" %}
+    <p>oTherm &copy;{% now 'Y' %}</p>
+</footer>
+</body>
+{# Javascript files included at end to reduce load times #}
+{% block footer_javascript %}
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.formset.js' %}"></script>
+    <script src="{% static 'js/datepicker.min.js' %}"></script>
+    {% block footer_javascript_site %}
+    {% endblock footer_javascript_site %}
+    {% block footer_javascript_section %}{% endblock footer_javascript_section %}
+    {% block footer_javascript_page %}{% endblock footer_javascript_page %}
+{% endblock footer_javascript %}
+</html>

@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load custom_tags %}
+{% load crispy_forms_tags %}
+
+{% block title %}Select Monitoring System to Change{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1 class="text-center mt-5">Choose Monitoring System to Change</h1>
+        <div class="text-center alert alert-danger"> There are multiple monitoring systems with no end_date for this equipment. Please select the EquipmentMonitoringSystemSpec entry to change. </div>
+        <button onclick="window.location.href = '/'" class="btn btn-secondary">Home</button>
+        <!-- This will tell the user if the equipmentmonitoringsystemspec was modified successfully -->
+        <!-- All sites will be displayed in the following table -->
+        <table class="mt-2 table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">Monitoring System Spec</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">Equipment</th>
+                <th class="text-center" scope="col"></th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for spec in object_list %}
+                <tr>
+                    <td>{{ spec.monitoring_system_spec }}</td>
+                    <td>{{ spec.start_date }}</td>
+                    <td>{{ spec.equip_id }}</td>
+                    <td class="text-center"><a class="btn btn-info" href="{% url 'change-monitoring-system' spec.pk %}"
+                                               role="button">Select</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% if is_paginated %}
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    <!--Render the previous button-->
+                    {% if page_obj.has_previous %}
+                        <li class="page-item"><a class="page-link"
+                                                 href="/change-monitoring-system-choice/?page={{ page_obj.previous_page_number }}">Previous</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                    {% endif %}
+
+                    <!-- Render paginated buttons -->
+                    {% for page_num in page_obj.paginator.page_range %}
+                        <!-- Set the current page as active if the page number we are on is the same -->
+                        {% if page_num is page_obj.number %}
+                            <li class="active page-item"><a class="page-link"
+                                                            href="/change-monitoring-system-choice/?page={{ page_num }}">{{ page_num }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link"
+                                                     href="/change-monitoring-system-choice/?page={{ page_num }}">{{ page_num }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+
+                    <!--Render the next button-->
+                    {% if page_obj.has_next %}
+                        <li class="page-item"><a class="page-link"
+                                                 href="/change-monitoring-system-choice/?page={{ page_obj.next_page_number }}">Next</a></li>
+                    {% else %}
+                        <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        {% endif %}
+    </div>
+{% endblock content %}

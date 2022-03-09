@@ -1,0 +1,189 @@
+State,Name,code
+CT,"Bridgeport, Sikorsky Memorial Airport ",KBDR
+CT,"Chester, Chester Airport ",KSNC
+CT,"Danbury, Danbury Municipal Airport ",KDXR
+CT,"Groton / New London, Groton / New London Airport ",KGON
+CT,"Hartford, Hartford-Brainard Airport ",KHFD
+CT,"Meriden, Meriden Markham Municipal Airport ",KMMK
+CT,"New Haven, Tweed-New Haven Airport ",KHVN
+CT,"Oxford, Waterbury-Oxford Airport ",KOXC
+CT,"Willimantic, Windham Airport ",KIJD
+CT,"Windsor Locks, Bradley International Airport ",KBDL
+MA,"Beverly, Beverly Municipal Airport ",KBVY
+MA,"Boston, Logan International Airport ",KBOS
+MA,"Chatham, Chatham Municipal Airport ",KCQX
+MA,Chicopee Falls / Westover Air Force Base ,KCEF
+MA,East Milton ,KMQE
+MA,"Fitchburg, Fitchburg Municipal Airport ",KFIT
+MA,"Hyannis, Barnstable Municipal-Boardman Airport ",KHYA
+MA,Laurence G Hanscom Field Airport ,KBED
+MA,Lawrence Municipal Airport ,KLWM
+MA,Marshfield Airport ,KGHG
+MA,Marthas Vineyard Airport ,KMVY
+MA,"Nantucket, Nantucket Memorial Airport ",KACK
+MA,"New Bedford, New Bedford Regional Airport ",KEWB
+MA,North Adams Harriman-and-West Airport ,KAQW
+MA,"Norwood, Norwood Memorial Airport ",KOWD
+MA,Orange Municipal Airport ,KORE
+MA,Otis Air National Guard Base ,KFMH
+MA,Pittsfield Municipal Airport ,KPSF
+MA,"Plymouth, Plymouth Municipal Airport ",KPYM
+MA,Provincetown Municipal Airport ,KPVC
+MA,"Taunton, Taunton Municipal Airport ",KTAN
+MA,"Westfield, Barnes Municipal Airport ",KBAF
+MA,"Worcester, Worcester Regional Airport ",KORH
+ME,Auburn-Lewiston ,KLEW
+ME,"Augusta, Augusta State Airport ",KAUG
+ME,"Bangor, Bangor International Airport ",KBGR
+ME,"Bar Harbor, Hancock County-Bar Harbor Airport ",KBHB
+ME,"Caribou, Caribou Municipal Airport ",KCAR
+ME,Clayton Lake ,K40B
+ME,"Frenchville, Northern Aroostook Regional Airport ",KFVE
+ME,"Fryeburg, Eastern Slopes Regional Airport ",KIZG
+ME,Greenville ,KGNR
+ME,"Houlton, Houlton International Airport ",KHUL
+ME,"Millinocket, Millinocket Municipal Airport ",KMLT
+ME,"Portland, Portland International Jetport ",KPWM
+ME,Presque Isle ,KPQI
+ME,"Rockland, Knox County Regional Airport ",KRKD
+ME,"Sanford, Sanford Regional Airport ",KSFM
+ME,Steven A Bean Municipal Airport ,K8B0
+ME,"Waterville, Waterville Robert LaFleur Airport ",KWVL
+ME,Wiscasset Airport ,KIWI
+NH,"Berlin, Berlin Municipal Airport ",KBML
+NH,Concord Municipal Airport ,KCON
+NH,Jaffrey Airport-Silver Ranch ,KAFN
+NH,"Keene, Dillant-Hopkins Airport ",KEEN
+NH,"Laconia, Laconia Municipal Airport ",KLCI
+NH,Lebanon Municipal Airport ,KLEB
+NH,Manchester Airport ,KMHT
+NH,Mount Washington ,KMWN
+NH,Nashua - Boire Field Airport ,KASH
+NH,Pease Air Force Base / Portsmouth ,KPSM
+NH,Plymouth Municipal Airport ,K1P1
+NH,Rochester - Skyhaven Airport ,KDAW
+NH,Whitefield - Mount Washington Regional Airport ,KHIE
+NJ,"Andover, Aeroflex-Andover Airport ",K12N
+NJ,"Atlantic City, Atlantic City International Airport ",KACY
+NJ,Belmar-Farmingdale ,KBLM
+NJ,"Caldwell, Essex County Airport ",KCDW
+NJ,Lakehurst Naval Air Station ,KNEL
+NJ,Linden Airport ,KLDJ
+NJ,Mcguire Air Force Base ,KWRI
+NJ,Miller Air Park ,KMJX
+NJ,"Millville, Millville Municipal Airport ",KMIV
+NJ,Morristown Municipal ,KMMU
+NJ,"Mount Holly, South Jersey Regional Airport ",KVAY
+NJ,"Newark, Newark International Airport ",KEWR
+NJ,"Somerville, Somerset Airport ",KSMQ
+NJ,"Sussex, Sussex Airport ",KFWN
+NJ,"Teterboro, Teterboro Airport ",KTEB
+NJ,"Trenton, Mercer County Airport ",KTTN
+NJ,"Wildwood, Cape May County Airport ",KWWD
+NY,Albany International Airport ,KALB
+NY,"Binghamton, Binghamton Regional Airport ",KBGM
+NY,"Buffalo, Greater Buffalo International Airport ",KBUF
+NY,CATTARAUGUS COUNTY-OLEAN ,KOLE
+NY,Cortland County-Chase Field ,KN03
+NY,"Dansville, Dansville Municipal Airport ",KDSV
+NY,"Dunkirk, Chautauqua County / Dunkirk Airport ",KDKK
+NY,"East Hampton, East Hampton Airport ",KHTO
+NY,"Elmira, Elmira / Corning Regional Airport ",KELM
+NY,Farmingdale - Republic Airport ,KFRG
+NY,Fort Drum / Wheeler-Sack U. S. Army Airfield ,KGTB
+NY,"Fulton, Oswego County Airport ",KFZY
+NY,Genesee County Airport ,KGVQ
+NY,"Glens Falls, Floyd Bennett Memorial Airport ",KGFL
+NY,Griffiss Air Force Base / Rome ,KRME
+NY,"Islip, Long Island Mac Arthur Airport ",KISP
+NY,"Ithaca, Ithaca Tompkins Regional Airport ",KITH
+NY,"Jamestown, Chautauqua County/Jamestown Airport ",KJHW
+NY,JOHNSTOWN ,KNY0
+NY,"Massena, Massena International-Richards Field ",KMSS
+NY,"Montauk, Montauk Airport ",KMTP
+NY,"Montgomery, Orange County Airport ",KMGJ
+NY,"Monticello, Sullivan County International Airport ",KMSV
+NY,"New York City, Central Park ",KNYC
+NY,New York Downtown Manhattan ,KJRB
+NY,"New York, Kennedy International Airport ",KJFK
+NY,"New York, La Guardia Airport ",KLGA
+NY,Newburgh / Stewart ,KSWF
+NY,"Niagara Falls, Niagara Falls International Airport ",KIAG
+NY,Ogdensburg International Airport ,KOGS
+NY,"Penn Yan, Penn Yan Airport ",KPEO
+NY,Plattsburgh International Airport ,KPBG
+NY,POTSDAM ,KPTD
+NY,"Poughkeepsie, Dutchess County Airport ",KPOU
+NY,"Rochester, Greater Rochester International Airport ",KROC
+NY,"Saranac Lake, Adirondack Regional Airport ",KSLK
+NY,Schenectady Airport ,KSCH
+NY,"Shirley, Brookhaven Airport ",KHWV
+NY,Skaneateles Aero Drome ,K6B9
+NY,"Syracuse, Syracuse Hancock International Airport ",KSYR
+NY,The Gabreski Airport ,KFOK
+NY,"Watertown, Watertown International Airport ",KART
+NY,WAYNE ,KSDC
+NY,"Wellsville, Wellsville Municipal Airport ",KELZ
+NY,White Plains - Westchester County Airport ,KHPN
+PA,Allentown Queen City Municipal Airport ,KXLL
+PA,"Allentown, Lehigh Valley International Airport ",KABE
+PA,Altoona - Blair County Airport ,KAOO
+PA,Beaver County Airport ,KBVI
+PA,"Bedford, Bedford County Airport ",KHMZ
+PA,Bradford Regional Airport ,KBFD
+PA,"Butler, Butler County Airport/K W Scholter Field ",KBTP
+PA,Chester County Airport ,KMQS
+PA,"Clearfield, Clearfield-Lawrence Airport ",KFIG
+PA,"Doylestown, Doylestown Airport ",KDYL
+PA,Du Bois - Jefferson County Airport ,KDUJ
+PA,"Erie, Erie International Airport ",KERI
+PA,"Franklin, Venango Regional Airport ",KFKL
+PA,"Harrisburg, Capital City Airport ",KCXY
+PA,"Harrisburg, Harrisburg International Airport ",KMDT
+PA,Hazleton Municipal Airport ,KHZL
+PA,Indiana / Stewart Field ,KIDI
+PA,Johnstown - Cambria County Airport ,KJST
+PA,"Lancaster, Lancaster Airport ",KLNS
+PA,Latrobe / Westmorland ,KLBE
+PA,Lehighton Jake Arner Memorial Airport ,K22N
+PA,"Mount Pocono, Pocono Mountains Municipal Airport ",KMPO
+PA,Muir Army Air Field / Indiantown ,KMUI
+PA,"New Castle, New Castle Municipal Airport ",KUCP
+PA,PERKASIE ,KCKZ
+PA,Philadelphia - Wings Field Airport ,KLOM
+PA,"Philadelphia, Northeast Philadelphia Airport ",KPNE
+PA,"Philadelphia, Philadelphia International Airport ",KPHL
+PA,Pittsburgh - Allegheny County Airport ,KAGC
+PA,"Pittsburgh, Pittsburgh International Airport ",KPIT
+PA,Port Meadville Airport ,KGKJ
+PA,"Pottstown, Pottstown Limerick Airport ",KPTW
+PA,Quakertown Airport ,KUKT
+PA,"Reading, Reading Regional Airport ",KRDG
+PA,Reedsville / Mifflin ,KRVL
+PA,Selinsgrove Penn Valley Airport ,KSEG
+PA,Somerset County Airport ,K2G9
+PA,St Marys Municipal Airport ,KOYM
+PA,State College - University Park Airport ,KUNV
+PA,Washington - Washington County Airport ,KAFJ
+PA,Wellsboro Johnston Airport ,KN38
+PA,WEST CHESTER ,KOQN
+PA,"Wilkes-Barre - Scranton, Wilkes-Barre / Scranton International Airport ",KAVP
+PA,Williamsport - Lycoming County Airport ,KIPT
+PA,"York, York Airport ",KTHV
+RI,Block Island State Airport ,KBID
+RI,N. Kingston / Quonset ,KOQU
+RI,"Newport, Newport State Airport ",KUUU
+RI,"Pawtucket, North Central State Airport ",KSFZ
+RI,"Providence, Theodore Francis Green State Airport ",KPVD
+RI,"Westerly, Westerly State Airport ",KWST
+VT,"Barre / Montpelier, Knapp State Airport ",KMPV
+VT,Bennington Morse State Airport ,KDDH
+VT,"Burlington, Burlington International Airport ",KBTV
+VT,Caledonia County Airport ,KCDA
+VT,Franklin County State Airport ,KFSO
+VT,Middlebury State Airport ,K6B0
+VT,Morrisville-Stowe State Airport ,KMVL
+VT,Northeast Kingdom International Airport ,KEFK
+VT,Rutland-Southern Vermont Regional Airport ,KRUT
+VT,"Springfield, Hartness State Springfield Airport ",KVSF
+VT,St. Johnsbury - Fairbanks ,K1V4

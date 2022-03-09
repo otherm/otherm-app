@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add Monitoring System to Equipment{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1 class="pt-3 text-center">Add Monitoring System to Equipment</h1>
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        <button onclick="window.location.href = '/'" class="btn btn-secondary">Home</button>
+        <hr class="mb-5">
+        <form id="add-monitoring-system-form" method="POST" data-equipment-from-site-url="{% url 'ajax_load_equipment_from_site' %}">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+
+
+{% endblock content %}
+
+{% block footer_javascript_page %}
+    <script>
+        // load the equipment based off of the site selected
+        $("#id_site").change(function () {
+            // get the url of the `data-equipment-from-site-url` attribute
+            var url = $("#add-monitoring-system-form").attr("data-equipment-from-site-url");
+            // get the selected type ID from the HTML input
+            var site_id = $(this).val();
+            // form ajax request
+            $.ajax({
+                url: url, // url of the request
+                data: {
+                    'site': site_id,  // add the site id to the GET parameters
+                    'exclude_monitoring_systems': true // if we want to exclude those with monitoring systems already
+                },
+                success: function (data) {
+                    // replace the contents of the equipment input with the data that came from the server
+                    $("#id_equip_id").html(data);
+                }
+            });
+        });
+    </script>
+    <!-- Link the date picker with the expires field -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#id_start_date').datepicker();
+            $('#id_end_date').datepicker();
+            $("#id_equip_id").html('<option value="">---------</option>');
+        });
+    </script>
+{% endblock footer_javascript_page %}

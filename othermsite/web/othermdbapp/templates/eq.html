@@ -1,0 +1,16 @@
+{% if eqv_objs %}
+    <table>
+        {% for eqv in eqv_objs %}
+            <tr>
+                <td>{{ eqv.equipment_uuid }}</td>
+                <td>{{ eqv.company_name }}</td>
+                <td>{{ eqv.equipment_name }}</td>
+                <td>{{ eqv.description }}</td>
+                <td>{{ eqv.equipment_type }}</td>
+                <td>{{ eqv.site_name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>Something went wrong</p>
+{% endif %}

@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="text-center">oTherm Admin Forms</h2>
+
+        <div class="row gy-8">
+            <div class="col-md-12">
+
+            </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2">
+
+          </div>
+          <div class="col-md-10">
+              <h4 class="mt-5"></h4>
+              <div class="row gy-4">
+                  <div class="col-md-4">
+                       <button class="btn btn-primary col-10 othermblue white"
+                               onclick="window.location.href = '/system-registration/'">Monitoring
+                System Registration
+            </button>
+                  </div>
+                  <div class="col-md-6">
+                        <p>Allows the creation of a new monitoring system.</p>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                    <h4 class="mt-5"></h4>
+                </div>
+              </div>
+              <div class="row">
+                   <div class="col-md-4">
+                      <button class="btn btn-primary col-10 othermblue white"
+                               onclick="window.location.href = '/system-spec-list/'">
+                                Add Monitoring System Spec  </button>
+                   </div>
+                   <div class="col-md-6">
+                         <p>Add Monitoring System Spec.</p>
+                   </div>
+               </div>
+              <div class="row">
+                <div class="col-md-12">
+                    <h4 class="mt-5"></h4>
+                </div>
+              </div>
+              <div class="row">
+                   <div class="col-md-4">
+                        <button class="btn btn-primary col-10 othermblue white" onclick="window.location.href = '/data-upload/'">
+                                Upload Time Series Data
+                        </button>
+                   </div>
+                   <div class="col-md-6">
+                         <p>Upload line protocol time series data.</p>
+                   </div>
+               </div>
+              <div class="row">
+                <div class="col-md-12">
+                    <h4 class="mt-5"></h4>
+                </div>
+              </div>
+              <div class="row">
+                   <div class="col-md-4">
+                      <button class="btn btn-primary col-10 othermblue white"
+                               onclick="window.location.href = '/model-upload/'">
+                                Upload Models
+                      </button>
+                   </div>
+                   <div class="col-md-6">
+                         <p>Add a new site to the oTherm database.</p>
+                   </div>
+               </div>
+              <div class="row">
+                <div class="col-md-12">
+                    <h4 class="mt-5"></h4>
+                </div>
+              </div>
+              <div class="row">
+                   <div class="col-md-4">
+                      <button class="btn btn-primary col-10 othermblue white"
+                               onclick="window.location.href = '/weather-form/'">Weather Data
+                      </button>
+                   </div>
+                   <div class="col-md-6">
+                         <p>A search tool for weather data in the Influxdb.</p>
+                   </div>
+               </div>
+          </div>
+        </div>
+    </div>
+
+{% endblock %}

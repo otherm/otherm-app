@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Add Equipment to a Site{% endblock %}
+{% block content %}
+    <div class="container">
+        <h1 class="pt-3 text-center">Add Equipment to {{ site_name }}</h1>
+        <button onclick="window.location.href = '/site-list/'" class="btn btn-secondary">Back to Site List</button>
+        <hr class="mb-3"/>
+        <form id="equipmentRegistrationForm" method="POST" data-manufacturer-url="{% url 'ajax_load_manufacturers' %}"
+              data-model-url="{% url 'ajax_load_models' %}">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <!-- All sites will be displayed in the following table -->
+        <h2 class="mt-5">Equipment at {{ site_name }}</h2>
+        <table class="mt-2 table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">UUID (Last Four)</th>
+                <th scope="col">Type</th>
+                <th scope="col">Manufacturer</th>
+                <th scope="col">Model</th>
+                <th class="text-center" scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for equipment in equipment_list %}
+                <tr>
+                    <!-- UUID is sliced so that only the last 4 digits are displayed -->
+                    <td>{{ equipment.uuid|slugify|slice:"-4:" }}</td>
+                    <td>{{ equipment.type }}</td>
+                    <td>{{ equipment.manufacturer }}</td>
+                    <td>{{ equipment.model }}</td>
+                    <td class="text-center"><a class="btn btn-danger" href="{% url 'equipment-delete' equipment.pk %}"
+                                               role="button">Delete</a></td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td>No Equipment to display</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock content %}
+
+{% block footer_javascript_page %}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script>
+        // Loads the manufacturer dropdown based off of the equipment type
+        $("#id_type").change(function () {
+            // get the url of the `data-manufacturer-url` view
+            var url = $("#equipmentRegistrationForm").attr("data-manufacturer-url");
+            // get the selected type ID from the HTML input
+            var type_id = $(this).val();
+
+            $.ajax({
+                url: url,                           // set the url of the request (= localhost:8000/data-manufacturer-url/)
+                data: {
+                    'equipment_type': type_id       // add the equipment type id to the GET parameters
+                },
+                success: function (data) {   // `data` is the return of the `data-manufacturer-url` view function
+                    // replace the contents of the manufacturer input with the data that came from the server
+                    $("#id_manufacturer").html(data);
+                }
+            });
+        });
+    </script>
+
+    <script>
+        // Loads the models to the dropdown based on the selected manufacturer
+        $("#id_manufacturer").change(function () {
+            // get the url of the `data-model-url` view
+            var url = $("#equipmentRegistrationForm").attr("data-model-url");
+            // get the manufacturer ID from the HTML input
+            var manufacturer_id = $(this).val();
+
+            $.ajax({
+                url: url,                                 // set the url of the request (= localhost:8000/data-model-url/)
+                data: {
+                    'manufacturer': manufacturer_id       // add the manufacturer id to the GET parameters
+                },
+                success: function (data) {      // `data` is the return of the `data-model-url` view function
+                    // replace the contents of the model input with the data that came from the server
+                    $("#id_model").html(data);
+                }
+            });
+        });
+    </script>
+{% endblock footer_javascript_page %}

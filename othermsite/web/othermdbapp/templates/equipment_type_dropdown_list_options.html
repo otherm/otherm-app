@@ -1,0 +1,5 @@
+<!--Helps in rendering the manufacturers in the dropdown-->
+<option value="">---------</option>
+{% for manufacturer in manufacturers %}
+    <option value="{{ manufacturer.pk }}">{{ manufacturer.name }}</option>
+{% endfor %}
